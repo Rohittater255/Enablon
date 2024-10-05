@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests">
+
+
+    <parameter name="launchOptions.headless" value="false"/>
+
+    <parameter name="browserType" value="chrome"/> <!--Possible Value: chrome,, firefox-->
+    <!--Parameters-->
+    <parameter name="application.Url" value="https://todomvc.com/examples/react/dist/"/>
+
+
+    <!--Listeners for reporting Purposes-->
+    <listeners>
+        <listener class-name="reporting.CustomReport"></listener>
+        <listener class-name="reporting.ExtentReporter"></listener>
+    </listeners>
+
+
+    <!-- Positive Test Cases-->
+    <test name="AutomationSetup">
+        <classes>
+            <class name="setup.AutomationSetup"></class>
+        </classes>
+    </test>
+    <!-- Positive Test Cases-->
+    <test name="Positive Scenarios">
+        <classes>
+            <class name="testScenarios.PositiveScenarios"></class>
+        </classes>
+    </test>
+    <!-- Test Cases-->
+<!--    <test name="Negative Scenarios">-->
+<!--        <classes>-->
+<!--            <class name="testScenarios.NegativeScenarios"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+
+</suite>
