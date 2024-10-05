@@ -14,8 +14,6 @@ import org.testng.annotations.Parameters;
 import pages.ToDoPage;
 import utils.ScreenshotUtils;
 
-import static reporting.ExtentReporter.test;
-
 public class TestTemplate {
 
     private static final Logger logger = Logger.getLogger(TestTemplate.class);

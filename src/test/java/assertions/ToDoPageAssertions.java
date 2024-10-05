@@ -1,13 +1,11 @@
 package assertions;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import utils.BaseAssertions;
 
 public class ToDoPageAssertions extends BaseAssertions {
-
 
 
     public ToDoPageAssertions(WebDriver driver) {
