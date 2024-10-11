@@ -10,8 +10,11 @@
 
     <!--Listeners for reporting Purposes-->
     <listeners>
-        <listener class-name="reporting.CustomReport"></listener>
+        <listener class-name="org.testng.reporters.FailedReporter"></listener>
+<!--        <listener class-name="reporting.CustomReport"></listener>-->
         <listener class-name="reporting.ExtentReporter"></listener>
+        <listener class-name="reporting.DE_CustomReporterListener"></listener>
+
     </listeners>
 
 
@@ -23,12 +26,12 @@
     </test>
     <test name="Positive Scenarios">
         <classes>
-            <class name="testScenarios.PositiveScenarios"></class>
+            <class name="testScenarios.PositiveScenarios"/>
         </classes>
     </test>
     <test name="Negative Scenarios">
         <classes>
-            <class name="testScenarios.NegativeScenarios"></class>
+            <class name="testScenarios.NegativeScenarios_DataProvider"/>
         </classes>
     </test>
 

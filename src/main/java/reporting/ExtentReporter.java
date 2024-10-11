@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -73,10 +74,24 @@ public class ExtentReporter extends ElementUtils implements ITestListener {
         int mid = qualifiedName.substring(0, last).lastIndexOf(".");
         String className = qualifiedName.substring(mid + 1, last);
 
-        System.out.println(methodName + " started!");
-        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName(),
-                result.getMethod().getDescription());
+        // Get the parameters used in the test method
+        Object[] parameters = result.getParameters();
+        String params = Arrays.toString(parameters);
 
+        // Log the start of the test method
+        System.out.println(methodName + " started with parameters: " + params);
+
+        System.out.println(methodName + " started!");
+        ExtentTest extentTest;
+        if(parameters.length>0) {
+             extentTest = extent.createTest(result.getMethod().getMethodName() + " [" + params + "]",
+                    result.getMethod().getDescription());
+        }
+        else {
+            extentTest = extent.createTest(result.getMethod().getMethodName(),
+                    result.getMethod().getDescription());
+
+        }
         extentTest.assignCategory(result.getTestContext().getSuite().getName());
         /*
          * methodName = StringUtils.capitalize(StringUtils.join(StringUtils.

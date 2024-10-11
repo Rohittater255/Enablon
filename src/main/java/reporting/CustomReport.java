@@ -36,7 +36,7 @@ public class CustomReport implements IReporter {
 
         reportContent.append("</body></html>");
 
-        try (FileWriter writer = new FileWriter(outputDirectory + "/custom-report.html")) {
+        try (FileWriter writer = new FileWriter(outputDirectory + "/custom-report2.html")) {
             writer.write(reportContent.toString());
         } catch (IOException e) {
             e.printStackTrace();
